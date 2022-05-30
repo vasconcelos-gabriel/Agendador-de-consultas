@@ -63,7 +63,7 @@ section header h4{
 }
 
 section header h2 {
-  font-size: 3rem;
+  font-size: 3.8rem;
   line-height: 3.9rem;
   color: var(--headline-color);
   margin-bottom: 6rem;
@@ -336,4 +336,27 @@ display: flex;
 #about .content p{
   margin-top: 2.4rem;
   margin-bottom: 6rem;
+}
+
+/* ========================== CONTACT ======================*/
+
+#contact h2{
+  text-align: left;
+  margin-bottom: 3.2rem;
+}
+
+#contact .content ul li{
+  display: flex;
+  text-align: left;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+#contact .content button{
+  background-color: var(--primary-color);
+
+  border: none;
+  border-radius: 4rem;
+  margin-bottom: 6rem;
+  
 }
