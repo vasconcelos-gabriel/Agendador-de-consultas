@@ -1,24 +1,42 @@
-function onScroll(){
+const navigation = document.getElementById('navigation')
+const backToTopButton = document.getElementById('backToTopButton')
 
-  if( scrollY > 0){
+window.addEventListener('scroll' , onScroll)
+
+onScroll()
+function onScroll() {
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+}
+
+function showNavOnScroll() {
+  if (scrollY > 0) {
     navigation.classList.add('scroll')
-  }else{
+  } else {
     navigation.classList.remove('scroll')
   }
-
 }
 
-function openMenu(){
-    document.body.classList.add('menu-expanded')
-
+function showBackToTopButtonOnScroll() {
+  if (scrollY > 500) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
 }
 
-function closeMenu(){
+function openMenu() {
+  document.body.classList.add('menu-expanded')
+}
+
+function closeMenu() {
   document.body.classList.remove('menu-expanded')
 }
 
 ScrollReveal({
   origin: 'top',
   distance: '30px',
-  duration: 700,
-}).reveal('#home, #home img, #home .stats, #services,#services header,#services cards, #services card, #about');
+  duration: 700
+}).reveal(
+  '#home, #home img, #home .stats, #services,#services header,#services cards, #services card, #about'
+)
