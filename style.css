@@ -15,13 +15,14 @@
   --border-color: hsl(148, 23%, 89%);
   --section-color: hsl(180, 14%, 97%);
   --darkhover-color: hsl(170, 100%, 14%);
+  --ligth: hsl(180, 14%, 97%);
 
   font-size: 62.5%; /* 1rem = 10px */
 
   --nav-height: 7.2rem;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -39,7 +40,7 @@ body {
   background: var(--section-color);
 }
 .wrapper {
-  width: 37.5rem;
+  width: min(50rem, 100%);
   margin-inline: auto;
   padding-inline: 2.4rem;
 }
@@ -47,13 +48,11 @@ body {
 ul {
   list-style: none;
 }
-section{
+section {
   padding-block: 10rem;
- 
-
 }
 
-section header h4{
+section header h4 {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 150%;
@@ -61,7 +60,6 @@ section header h4{
   text-transform: uppercase;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
-
 }
 
 section header h2 {
@@ -69,17 +67,15 @@ section header h2 {
   line-height: 3.9rem;
   color: var(--headline-color);
   margin-bottom: 6rem;
-
 }
 
-section header h1{
+section header h1 {
   font-size: 3.4rem;
   line-height: 130%;
   color: var(--headline-color);
   margin-bottom: 2.4rem;
-
 }
-section .content p{
+section .content p {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 150%;
@@ -93,7 +89,7 @@ section .content p{
   border: none;
   border-radius: 4rem;
   margin-bottom: 6rem;
-  
+
   padding: 1.6rem 3.2rem;
   width: fit-content;
 
@@ -108,16 +104,16 @@ section .content p{
   justify-content: center;
   gap: 1.6rem;
 
-
-  transition: background .2s;
+  transition: background 0.2s;
 }
 
 .button:hover {
   background-color: var(--darkhover-color);
 }
+
 /* ========================== NAVIGATION ======================*/
 
-nav {
+#navigation {
   display: flex;
 
   /*padding: 1.6rem 2.4rem; */
@@ -126,35 +122,36 @@ nav {
   top: 0;
   width: 100vw;
   z-index: 100;
-
 }
 
-nav .wrapper {
+#navigation .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-nav.scroll {
+#navigation.scroll {
   background-color: var(--primary-color);
-  
 }
 
-nav.scroll .logo path {
+#navigation.scroll .logo path {
   fill: white;
 }
 
-nav.scroll button path {
+#navigation.scroll button path {
   stroke: white;
 }
 
-nav button {
+#navigation button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-
+#navigation .menu,
+#navigation .close-menu {
+  position: fixed;
+}
 
 /* ========================== HOME ======================*/
 #home {
@@ -174,7 +171,6 @@ nav button {
   z-index: -1;
 }
 
-
 #home p {
   font-size: 1.8rem;
   line-height: 150%;
@@ -182,9 +178,8 @@ nav button {
   margin-bottom: 3.2rem;
 }
 
-#home .button{
+#home .button {
   margin-inline: auto;
-
 }
 
 #home img {
@@ -194,12 +189,12 @@ nav button {
   object-position: 0 2rem;
 }
 
-.stats {
+#home .stats {
   margin-inline: auto;
   background-color: var(--div-color);
   border: 1px solid var(--border-color);
   border: 0.6rem;
-  width: 32.7rem;
+  width: 100%;
   padding-block: 4rem;
   display: flex;
   flex-direction: column;
@@ -221,7 +216,6 @@ nav button {
   margin-bottom: 0.4rem;
 }
 
-
 /* ========================== MENU-EXPANDED ======================*/
 .menu,
 .close-menu,
@@ -240,16 +234,14 @@ body.menu-expanded {
 }
 /* sumir com primeiro nivel*/
 body.menu-expanded > :not(nav) {
- visibility: hidden;
+  visibility: hidden;
 }
 
-
-.menu{
+.menu {
   transform: translateY(100%);
 }
 
 body.menu-expanded .menu {
-  position: fixed;
   top: 0;
   left: 0;
   background-color: var(--primary-color);
@@ -260,9 +252,7 @@ body.menu-expanded .menu {
 
   transition: transform 300ms;
   transform: translateY(0);
-
 }
-
 
 .menu ul:nth-child(1) {
   display: flex;
@@ -297,7 +287,7 @@ body.menu-expanded .menu {
   margin-bottom: 8rem;
 }
 
-.menu .button:hover{
+.menu .button:hover {
   background-color: var(--primary-color);
   color: white;
 
@@ -326,13 +316,13 @@ body.menu-expanded button path {
 }
 /* ========================== SERVICES ======================*/
 
-#services .cards{
- display: flex;
- flex-direction: column;
- gap: 3.2rem;
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
 }
 
-#services .card{
+#services .card {
   padding: 2.4rem;
   text-align: left;
   background-color: #ffffff;
@@ -340,32 +330,31 @@ body.menu-expanded button path {
   border: 1px solid var(--border-color);
 }
 
-#services .card h3{
+#services .card h3 {
   margin-block: 1.6rem;
 }
 /* ========================== ABOUT ======================*/
 
-#about{
-background: var(--div-color);
-text-align: left;
-display: flex;
+#about {
+  background: var(--div-color);
+  text-align: left;
+  display: flex;
 }
-#about h2{
+#about h2 {
   margin-bottom: 2.4rem;
 }
 
-#about .content p{
+#about .content p {
   margin-top: 2.4rem;
   margin-bottom: 6rem;
 }
 
 /* ========================== CONTACT ======================*/
 
-#contact{
+#contact {
   text-align: left;
 }
-#contact h2{
- 
+#contact h2 {
   margin-bottom: 3.2rem;
 }
 
@@ -376,7 +365,7 @@ display: flex;
   margin-bottom: 3.2rem;
 }
 
-#contact li{
+#contact li {
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -389,7 +378,7 @@ footer {
   color: white;
 }
 
-footer .logo{
+footer .logo {
   display: inline-block;
   margin-bottom: 2.4rem;
   margin-left: 2.6rem;
@@ -402,20 +391,20 @@ footer .logo path {
   fill: white;
 }
 
-footer p{
+footer p {
   color: var(--div-color);
   line-height: 2;
   margin-bottom: 3.2rem;
   margin-left: 2.6rem;
 }
 
-footer .social-links{
+footer .social-links {
   justify-content: flex-start;
   margin-left: 2.6rem;
 }
 
 /* BACK TO TOP */
-#backToTopButton{
+#backToTopButton {
   position: fixed;
   bottom: 1rem;
   right: 2.5rem;
@@ -426,8 +415,112 @@ footer .social-links{
   transition: 200ms;
 }
 
-#backToTopButton.show{
+#backToTopButton.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+/* ========================== RESPONSIVO ======================*/
+@media (min-width: 1024px) {
+  /* === GERAL ======================*/
+  .wrapper {
+    width: min(112rem, 100%);
+  }
+
+  /* === NAVIGATION ======================*/
+
+  /* RESET */
+  nav#navigation .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    font-size: initial;
+    transform: initial;
+    color: initial;
+    background: initial;
+    font-weight: initial;
+  }
+  nav#navigation .close-menu,
+  nav#navigation .open-menu,
+  nav#navigation .social-links {
+    display: none;
+  }
+
+  nav#navigation .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  nav#navigation .menu ul:nth-child(1) {
+    display: flex;
+    gap: 3.2rem;
+  }
+  nav#navigation .menu ul li a {
+    color: var(--primary-color);
+    opacity: 0.7;
+  }
+  nav#navigation .menu a.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.4rem;
+
+    /* Primary Colors/brand-green */
+
+    border: 1px solid var(--primary-color);
+    border-radius: 40rem;
+    color: var(--primary-color);
+
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+  nav#navigation.scroll .menu ul li a{
+    color: var(--ligth);
+    
+  }
+  nav#navigation.scroll .menu a.button{
+    border-color: white;
+    color: white;
+  }
+  nav#navigation .menu li a.active,
+  nav#navigation .menu li a:hover{
+    opacity: 1;
+    font-weight: 700;
+  }
+  nav#navigation .menu li a::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: relative;
+    bottom: -2rem;
+    left: -1rem;
+    
+    display: block;
+    transition: width 0.2s;
+  }
+
+  nav#navigation.scroll .menu li a::after{
+    background-color: white;
+  }
+  nav#navigation .menu li a.active::after,
+  nav#navigation .menu li a:hover::after{
+    padding-inline: 1rem;
+    width: 100%;
+  }
+  nav#navigation.scroll .menu a.button.active,
+  nav#navigation.scroll .menu a.button:hover{
+    background-color: var(--primary-color);
+    filter: brightness(1.3);
+    border: none;
+  }
 }
