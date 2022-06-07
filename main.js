@@ -1,12 +1,52 @@
 const navigation = document.getElementById('navigation')
 const backToTopButton = document.getElementById('backToTopButton')
+const home = document.getElementById('home')
+const services = document.getElementById('services')
+const about = document.getElementById('about')
+const contact = document.getElementById('contact')
 
-window.addEventListener('scroll' , onScroll)
+
+window.addEventListener('scroll', onScroll)
 
 onScroll()
 function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
+  activateMenuAtCurrentSection(home)
+  activateMenuAtCurrentSection(services)
+  activateMenuAtCurrentSection(about)
+  activateMenuAtCurrentSection(contact)
+}
+
+function activateMenuAtCurrentSection(section) {
+  const targetLine = scrollY + innerHeight / 2
+
+  //verficar se a seção passou da linha
+  //
+  const sectionTop = section.offsetTop
+  const sectionHeight = section.offsetHeight
+
+  const sectionTopReachOrPassedTargetline = targetLine >= sectionTop
+
+  //console.log('O topo da seção chegou ou passou da linha?', sectionTopReachOrPassedTargetline );
+
+  const sectionEndsAt = sectionTop + sectionHeight
+  const sectionEndPassedTargetline = sectionEndsAt <= targetLine
+
+  //console.log('O fundo da seção passou da linha?', sectionEndPassedTargetline );
+
+  const sectionBoundaries =
+    sectionTopReachOrPassedTargetline && !sectionEndPassedTargetline
+
+  const sectionId = section.getAttribute('id')
+  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
+
+  menuElement.classList.remove('active')
+  if (sectionBoundaries) {
+    menuElement.classList.add('active')
+
+    //    console.log('estou na seção home');
+  }
 }
 
 function showNavOnScroll() {
