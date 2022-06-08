@@ -113,7 +113,7 @@ section .content p {
 
 /* ========================== NAVIGATION ======================*/
 
-#navigation {
+nav {
   display: flex;
 
   /*padding: 1.6rem 2.4rem; */
@@ -124,32 +124,32 @@ section .content p {
   z-index: 100;
 }
 
-#navigation .wrapper {
+nav .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#navigation.scroll {
+nav.scroll {
   background-color: var(--primary-color);
 }
 
-#navigation.scroll .logo path {
+nav.scroll .logo path {
   fill: white;
 }
 
-#navigation.scroll button path {
+nav.scroll button path {
   stroke: white;
 }
 
-#navigation button {
+nav button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-#navigation .menu,
-#navigation .close-menu {
+nav .menu,
+nav .close-menu {
   position: fixed;
 }
 
@@ -218,6 +218,20 @@ section .content p {
 }
 
 /* ========================== MENU-EXPANDED ======================*/
+
+.close-menu{
+  margin-left: 3rem;
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+/* sumir com primeiro nivel*/
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
 .menu,
 .close-menu,
 body.menu-expanded .open-menu {
@@ -230,13 +244,8 @@ body.menu-expanded .close-menu {
   opacity: 1;
   visibility: visible;
 }
-body.menu-expanded {
-  overflow: hidden;
-}
-/* sumir com primeiro nivel*/
-body.menu-expanded > :not(nav) {
-  visibility: hidden;
-}
+
+
 
 .menu {
   transform: translateY(100%);
